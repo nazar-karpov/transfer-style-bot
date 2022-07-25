@@ -3,6 +3,12 @@ import transfer_style
 from telebot import types
 import subprocess
 from PIL import Image
+import os
+
+# разкоментируйте это если запускаете в первый раз
+# os.chdir('./pytorch-CycleGAN-and-pix2pix')
+# subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c", "bash scripts/download_cyclegan_model.sh style_vangogh"])
+os.chdir('./')
 
 bot = telebot.TeleBot("5357028511:AAEvK8xBSUQKjD9a55SmsCQq1hVQCs8xz-o", parse_mode=None)
 photos = []
@@ -29,6 +35,7 @@ def decision(message):
     elif message.text == 'cycleGAN':
         flag = 1
         bot.send_message(message.chat.id, 'Теперь кидай 1 фотографию')
+
 
 @bot.message_handler(content_types=['photo'])
 def vgg19_and_cycleGAN(message):
@@ -60,14 +67,14 @@ def vgg19_and_cycleGAN(message):
         with open(content_src, 'wb') as new_file:
             new_file.write(downloaded_file)
         bot.send_message(message.chat.id, 'В процессе...')
-        subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c",
-                        "python C:/Users/Назар/PycharmProjects/TransferStyleBot/pytorch-CycleGAN-and-pix2pix/test.py "
-                        "--dataroot C:/Users/Назар/PycharmProjects/TransferStyleBot/pytorch-CycleGAN-and-pix2pix"
-                        "/datasets/user_photos/testA --name "
-                        "C:/Users/Назар/PycharmProjects/TransferStyleBot/pytorch-CycleGAN-and-pix2pix/scripts"
-                        "/checkpoints/style_vangogh_pretrained --model test --no_dropout --use_wandb --gpu_ids -1"])
-        bot.send_photo(message.chat.id, open('pytorch-CycleGAN-and-pix2pix/scripts/checkpoints'
-                                             '/style_vangogh_pretrained/test_latest/images/content_img_fake.png',
+        os.chdir('./pytorch-CycleGAN-and-pix2pix')
+        bath_path = "C:\\Program Files\Git\\bin\\bash.exe"  # put there your bash.exe path
+        subprocess.call([bath_path, "-c", "python test.py "
+                                          "--dataroot datasets/user_photos/testA --name "
+                                          "style_vangogh_pretrained --model test --no_dropout --gpu_ids -1"])
+        os.chdir(os.pardir)
+        bot.send_photo(message.chat.id, open('pytorch-CycleGAN-and-pix2pix/results/'
+                                             'style_vangogh_pretrained/test_latest/images/content_img_fake.png',
                                              'rb'))
 
 
