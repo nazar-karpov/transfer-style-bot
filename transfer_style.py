@@ -1,13 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch import optim
 import torchvision
-from torchvision import transforms
 from PIL import Image
-
-
-import copy
+from torch import optim
+from torchvision import transforms
 
 
 class TransferStyle:

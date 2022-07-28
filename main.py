@@ -5,9 +5,10 @@ import subprocess
 from PIL import Image
 import os
 
-# разкоментируйте это если запускаете в первый раз
-# os.chdir('./pytorch-CycleGAN-and-pix2pix')
-# subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c", "bash scripts/download_cyclegan_model.sh style_vangogh"])
+# раcкоментируйте это если запускаете в первый раз
+#os.chdir('./pytorch-CycleGAN-and-pix2pix')
+#subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c", "bash scripts/download_cyclegan_model.sh style_vangogh"])
+#os.chdir(os.pardir)
 os.chdir('./')
 
 bot = telebot.TeleBot("5357028511:AAEvK8xBSUQKjD9a55SmsCQq1hVQCs8xz-o", parse_mode=None)
