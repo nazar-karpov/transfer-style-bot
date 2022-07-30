@@ -5,14 +5,14 @@ import subprocess
 from PIL import Image
 import os
 print(os.getcwd())
-if not os.path.exists("cycleGAN\\datasets\\user_photos"):
-    os.mkdir('cycleGAN\\datasets\\user_photos')
-    os.mkdir('cycleGAN\\datasets\\user_photos\\testA')
+if not os.path.exists("cycleGAN/datasets/user_photos"):
+    os.mkdir('cycleGAN/datasets/user_photos')
+    os.mkdir('cycleGAN/datasets/user_photos/testA')
     # os.chdir('./cycleGAN')
     # subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c", "bash scripts/download_cyclegan_model.sh style_vangogh"])
     # os.chdir(os.pardir)
     os.chdir('cycleGAN')
-    subprocess.run("bash scripts\\download_cyclegan_model.sh style_vangogh", shell=True)
+    subprocess.run("bash scripts/download_cyclegan_model.sh style_vangogh", shell=True)
     os.chdir(os.pardir)
 os.chdir('./')
 
@@ -69,18 +69,18 @@ def vgg19_and_cycleGAN(message):
         file_info = bot.get_file(message.photo[-1].file_id)
         downloaded_file = bot.download_file(file_info.file_path)
         bot.reply_to(message, "Фото добавлено")
-        content_src = 'cycleGAN\\datasets\\user_photos\\testA\\content_img.jpg'
+        content_src = 'cycleGAN/datasets/user_photos/testA/content_img.jpg'
         with open(content_src, 'wb') as new_file:
             new_file.write(downloaded_file)
         bot.send_message(message.chat.id, 'В процессе...')
         os.chdir('cycleGAN')
         # bath_path = "C:\\Program Files\Git\\bin\\bash.exe"  # put there your bash.exe path
         subprocess.call("python test.py "
-                        "--dataroot datasets\\user_photos\\testA --name "
+                        "--dataroot datasets/user_photos/testA --name "
                         "style_vangogh_pretrained --model test --no_dropout --gpu_ids -1", shell=True)
         os.chdir(os.pardir)
-        bot.send_photo(message.chat.id, open('cycleGAN\\results\\'
-                                             'style_vangogh_pretrained\\test_latest\\images\\content_img_fake.png',
+        bot.send_photo(message.chat.id, open('cycleGAN/results/'
+                                             'style_vangogh_pretrained/test_latest/images/content_img_fake.png',
                                              'rb'))
 
 
