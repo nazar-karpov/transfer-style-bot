@@ -11,7 +11,7 @@ if not os.path.exists("cycleGAN\\datasets\\user_photos"):
     # os.chdir('./cycleGAN')
     # subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c", "bash scripts/download_cyclegan_model.sh style_vangogh"])
     # os.chdir(os.pardir)
-    os.chdir('cycleGAN\\')
+    os.chdir('cycleGAN')
     subprocess.run("bash scripts\\download_cyclegan_model.sh style_vangogh", shell=True)
     os.chdir(os.pardir)
 os.chdir('./')
