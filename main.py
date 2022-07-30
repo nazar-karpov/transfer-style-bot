@@ -8,7 +8,6 @@ print(os.getcwd())
 print(os.listdir())
 print(os.listdir('cycleGAN'))
 if not os.path.exists("cycleGAN/datasets/user_photos"):
-    subprocess.call('git submodule add https://github.com/nazar-karpov/pytorch-CycleGAN-and-pix2pix cycleGAN', shell=True)
     os.mkdir('cycleGAN/datasets/user_photos')
     os.mkdir('cycleGAN/datasets/user_photos/testA')
     # os.chdir('./cycleGAN')
