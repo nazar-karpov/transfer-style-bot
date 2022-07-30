@@ -4,7 +4,7 @@ from telebot import types
 import subprocess
 from PIL import Image
 import os
-
+print(os.getcwd())
 if not os.path.exists("cycleGAN\\datasets\\user_photos"):
     os.mkdir('cycleGAN\\datasets\\user_photos')
     os.mkdir('cycleGAN\\datasets\\user_photos\\testA')
@@ -14,7 +14,7 @@ if not os.path.exists("cycleGAN\\datasets\\user_photos"):
     os.chdir('./cycleGAN')
     subprocess.run("bash scripts/download_cyclegan_model.sh style_vangogh", shell=True)
     os.chdir(os.pardir)
-os.chdir('./')
+os.chdir('./transfer-style-bot')
 
 bot = telebot.TeleBot("5357028511:AAEvK8xBSUQKjD9a55SmsCQq1hVQCs8xz-o", parse_mode=None)
 photos = []
