@@ -5,8 +5,9 @@ import subprocess
 from PIL import Image
 import os
 print(os.getcwd())
-if not os.path.exists("cycleGAN/datasets/user_photos"):
-    os.mkdir('cycleGAN/datasets/user_photos')
+print(os.listdir())
+if not os.path.exists("cycleGAN\\datasets\\user_photos"):
+    os.mkdir('cycleGAN\\datasets\\user_photos')
     os.mkdir('cycleGAN/datasets/user_photos/testA')
     # os.chdir('./cycleGAN')
     # subprocess.run(["C:\\Program Files\Git\\bin\\bash.exe", "-c", "bash scripts/download_cyclegan_model.sh style_vangogh"])
@@ -15,6 +16,7 @@ if not os.path.exists("cycleGAN/datasets/user_photos"):
     subprocess.run("bash scripts/download_cyclegan_model.sh style_vangogh", shell=True)
     os.chdir(os.pardir)
 os.chdir('./')
+print(os.listdir())
 
 bot = telebot.TeleBot("5357028511:AAEvK8xBSUQKjD9a55SmsCQq1hVQCs8xz-o", parse_mode=None)
 photos = []
