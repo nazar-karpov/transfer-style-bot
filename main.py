@@ -54,8 +54,8 @@ def vgg19_and_cycleGAN(message):
         bot.reply_to(message, "Фото добавлено")
         if len(photos) == 2:
             bot.send_message(message.chat.id, 'В процессе...')
-            style_src = 'C:\\Users\\Назар\\PycharmProjects\\TransferStyleBot\\style_image.jpg'
-            content_src = 'C:\\Users\\Назар\\PycharmProjects\\TransferStyleBot\\content_image.jpg'
+            style_src = 'style_image.jpg'
+            content_src = 'content_image.jpg'
             with open(style_src, 'wb') as new_file:
                 new_file.write(photos[0])
             with open(content_src, 'wb') as new_file:
