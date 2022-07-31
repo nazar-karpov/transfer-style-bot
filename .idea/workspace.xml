@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e85d1cca-2171-48c2-94ca-5c36a017388a" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer_style.py" beforeDir="false" afterPath="$PROJECT_DIR$/transfer_style.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,7 @@
       <workItem from="1659087200284" duration="3367000" />
       <workItem from="1659092364234" duration="3124000" />
       <workItem from="1659180644793" duration="8371000" />
-      <workItem from="1659234460982" duration="312000" />
+      <workItem from="1659234460982" duration="1919000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1658386303049</created>
@@ -277,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659188718928</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="initial commit">
+      <created>1659234939695</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659234939695</updated>
+    </task>
+    <task id="LOCAL-00023" summary="initial commit">
+      <created>1659234995787</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1659234995787</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

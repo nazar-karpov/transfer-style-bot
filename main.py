@@ -22,7 +22,8 @@ os.chdir('./')
 print(os.listdir())
 print(os.listdir('cycleGAN'))
 
-bot = telebot.TeleBot("5357028511:AAEvK8xBSUQKjD9a55SmsCQq1hVQCs8xz-o", parse_mode=None)
+bot_API = # твой bot API
+bot = telebot.TeleBot(bot_API, parse_mode=None)
 photos = []
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
