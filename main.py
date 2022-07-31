@@ -43,7 +43,7 @@ def decision(message):
     if message.text == 'vgg19':
         flag = 0
         bot.send_message(message.chat.id, 'Теперь кидай 2 фотографии')
-    elif message.text == 'cycleGAN':
+    elif message.text == 'cycleGAN(стиль Ван Гога)':
         flag = 1
         bot.send_message(message.chat.id, 'Теперь кидай 1 фотографию')
 
