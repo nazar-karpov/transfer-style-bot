@@ -4,6 +4,8 @@ from telebot import types
 import subprocess
 from PIL import Image
 import os
+import torch
+import torchvision
 print(os.getcwd())
 print(os.listdir())
 print(os.listdir('cycleGAN'))
@@ -22,6 +24,9 @@ print(os.listdir('cycleGAN'))
 
 bot = telebot.TeleBot("5357028511:AAEvK8xBSUQKjD9a55SmsCQq1hVQCs8xz-o", parse_mode=None)
 photos = []
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+cnn = torchvision.models.vgg19(pretrained=True).features.to(device).eval()
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -64,7 +69,7 @@ def vgg19_and_cycleGAN(message):
                 new_file.write(photos[0])
             with open(content_src, 'wb') as new_file:
                 new_file.write(photos[1])
-            trans_style = transfer_style.TransferStyle(style_src, content_src)
+            trans_style = transfer_style.TransferStyle(style_src, content_src, cnn, device)
             output_image = trans_style.start()
             output_image.save('output_image.jpg')
             bot.send_photo(message.chat.id, open('output_image.jpg', 'rb'))

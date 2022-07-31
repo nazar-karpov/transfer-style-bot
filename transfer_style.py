@@ -8,16 +8,16 @@ from torchvision import transforms
 
 
 class TransferStyle:
-    def __init__(self, style_image, content_image):
+    def __init__(self, style_image, content_image, cnn, device):
         self.style_img = style_image
         self.content_img = content_image
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = device
         self.imsize = 512 if torch.cuda.is_available() else 256  # use small size if no gpu
         self.loader = transforms.Compose([
             transforms.Resize((self.imsize, self.imsize)),  # scale imported image
             transforms.ToTensor()])  # transform it into a torch tensor
         self.unloader = transforms.ToPILImage()
-        self.cnn = torchvision.models.vgg19(pretrained=True).features.to(self.device).eval()
+        self.cnn = cnn
         self.cnn_normalization_mean = torch.tensor([0.485, 0.456, 0.406]).to(self.device)
         self.cnn_normalization_std = torch.tensor([0.229, 0.224, 0.225]).to(self.device)
 
