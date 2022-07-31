@@ -12,7 +12,7 @@ class TransferStyle:
         self.style_img = style_image
         self.content_img = content_image
         self.device = device
-        self.imsize = 512 if torch.cuda.is_available() else 256  # use small size if no gpu
+        self.imsize = 512 if torch.cuda.is_available() else 128  # use small size if no gpu
         self.loader = transforms.Compose([
             transforms.Resize((self.imsize, self.imsize)),  # scale imported image
             transforms.ToTensor()])  # transform it into a torch tensor
